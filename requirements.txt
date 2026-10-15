@@ -1,0 +1,34 @@
+# Requirements — Underwater Vision AI
+# Généré pour Python 3.12 sur Windows
+
+# Core deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Computer vision
+ultralytics>=8.0.0
+opencv-python>=4.7.0
+
+# Web application
+streamlit>=1.30.0
+
+# Image processing
+Pillow>=9.0.0
+numpy>=1.23.0
+
+# Data & visualization
+pandas>=1.5.0
+plotly>=5.0.0
+pyyaml>=6.0
+
+# System utilities
+psutil>=5.8.0
+
+# ─── Installation ───────────────────────────────────────────────
+# CPU uniquement (Windows) :
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+#
+# GPU CUDA 11.8 :
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#   pip install -r requirements.txt

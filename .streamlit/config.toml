@@ -1,0 +1,19 @@
+# Streamlit configuration for Underwater Vision AI
+
+[theme]
+base = "dark"
+primaryColor = "#4ECDC4"
+backgroundColor = "#050d1a"
+secondaryBackgroundColor = "#0a1628"
+textColor = "#e8f4f8"
+font = "sans serif"
+
+[server]
+maxUploadSize = 500
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+
+[runner]
+fastReruns = true

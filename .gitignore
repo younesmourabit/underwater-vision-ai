@@ -1,0 +1,33 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Generated predictions and training outputs
+runs/
+exports/*
+!exports/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Dataset: exclude images by default until size and license are verified
+# Uncomment the following lines if you decide not to publish the dataset:
+# dataset/train/
+# dataset/valid/
+# dataset/test/
+
+# Model weights: uncomment if you decide not to publish the weights
+# *.pt
+
+# Secrets and local environment
+.streamlit/secrets.toml
+.env
+.env.*
+
+# Local history, if it contains personal data or local paths
+# history.json
+dataset/train/
+dataset/valid/
+dataset/test/
+history.json

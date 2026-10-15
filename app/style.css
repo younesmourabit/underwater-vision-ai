@@ -1,0 +1,437 @@
+/* ============================================================
+   Underwater Vision AI — Feuille de style globale
+   Design : Dark Ocean theme avec glassmorphism
+   ============================================================ */
+
+/* ─── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* ─── Variables CSS ─────────────────────────────────────────── */
+:root {
+    --ocean-deep:    #050d1a;
+    --ocean-mid:     #0a1628;
+    --ocean-surface: #0f2040;
+    --card-bg:       rgba(15, 32, 64, 0.85);
+    --card-border:   rgba(78, 205, 196, 0.15);
+    --glass-bg:      rgba(255, 255, 255, 0.04);
+    --glass-border:  rgba(255, 255, 255, 0.08);
+
+    --teal:    #4ECDC4;
+    --coral:   #FF6B6B;
+    --yellow:  #FFE66D;
+    --violet:  #6B5B95;
+    --blue:    #45B7D1;
+
+    --text-primary:   #e8f4f8;
+    --text-secondary: #8fb3c8;
+    --text-muted:     #4a6b7a;
+
+    --font-sans: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+    --radius:    12px;
+    --radius-sm: 8px;
+    --shadow:    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ─── App Background ────────────────────────────────────────── */
+.stApp {
+    background: linear-gradient(135deg, #050d1a 0%, #0a1628 40%, #0d1e3d 70%, #081524 100%) !important;
+    background-attachment: fixed !important;
+    font-family: var(--font-sans) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Particules animées en arrière-plan */
+.stApp::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(78,205,196,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(69,183,209,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 10%, rgba(107,91,149,0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #060e1c 0%, #0a1628 100%) !important;
+    border-right: 1px solid rgba(78,205,196,0.12) !important;
+}
+
+[data-testid="stSidebar"] > div {
+    padding-top: 1rem;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0 16px;
+    color: var(--text-primary);
+}
+
+/* ─── Navigation radio ──────────────────────────────────────── */
+[data-testid="stRadio"] > label {
+    display: none !important;
+}
+
+[data-testid="stRadio"] [data-testid="stMarkdownContainer"] p {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem !important;
+    padding: 8px 12px !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+[data-testid="stRadio"] [data-testid="stMarkdownContainer"] p:hover {
+    background: rgba(78,205,196,0.08) !important;
+    color: var(--teal) !important;
+}
+
+/* Radio button selected state */
+[data-testid="stRadio"] input[type="radio"]:checked + * [data-testid="stMarkdownContainer"] p {
+    color: var(--teal) !important;
+    background: rgba(78,205,196,0.12) !important;
+}
+
+/* ─── Page Header ────────────────────────────────────────────── */
+.page-header {
+    padding: 1.5rem 0 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.page-header h1 {
+    font-family: 'Space Grotesk', var(--font-sans) !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin: 0 0 0.4rem !important;
+}
+
+.page-header .subtitle {
+    color: var(--text-secondary) !important;
+    font-size: 1rem !important;
+    margin: 0 !important;
+}
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.info-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 8px 0;
+    backdrop-filter: blur(8px);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.metric-card {
+    background: rgba(10, 22, 40, 0.7);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 4px 0;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.metric-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', var(--font-sans);
+}
+
+/* ─── Species Cards ─────────────────────────────────────────── */
+.species-card {
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.25s ease;
+    min-height: 140px;
+}
+
+.species-card:hover {
+    transform: translateY(-3px);
+    background: rgba(20, 40, 70, 0.8);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* ─── Model Status ──────────────────────────────────────────── */
+.model-status-ok {
+    background: rgba(78, 205, 196, 0.08);
+    border: 1px solid rgba(78, 205, 196, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: var(--teal);
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+.model-status-err {
+    background: rgba(255, 107, 107, 0.08);
+    border: 1px solid rgba(255, 107, 107, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: var(--coral);
+    margin-top: 8px;
+}
+
+/* ─── Upload Hint ────────────────────────────────────────────── */
+.upload-hint {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    border: 2px dashed rgba(78,205,196,0.2);
+    border-radius: var(--radius);
+    background: rgba(78,205,196,0.02);
+    margin: 20px 0;
+}
+
+.upload-hint p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%) !important;
+    color: #050d1a !important;
+    border: none !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.5rem 1.5rem !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(78,205,196,0.3) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(78,205,196,0.45) !important;
+    opacity: 0.95 !important;
+}
+
+.stButton > button[kind="secondary"] {
+    background: rgba(255,255,255,0.05) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: rgba(78,205,196,0.3) !important;
+}
+
+/* ─── Metrics ────────────────────────────────────────────────── */
+[data-testid="stMetric"] {
+    background: rgba(10, 22, 40, 0.6) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius) !important;
+    padding: 16px !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--text-secondary) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    font-family: 'Space Grotesk', var(--font-sans) !important;
+}
+
+/* ─── Sliders ────────────────────────────────────────────────── */
+[data-testid="stSlider"] [data-testid="stThumbValue"] {
+    background: var(--teal) !important;
+    color: #050d1a !important;
+}
+
+/* ─── File Uploader ──────────────────────────────────────────── */
+[data-testid="stFileUploadDropzone"] {
+    background: rgba(78,205,196,0.03) !important;
+    border: 2px dashed rgba(78,205,196,0.3) !important;
+    border-radius: var(--radius) !important;
+    transition: all 0.2s ease !important;
+}
+
+[data-testid="stFileUploadDropzone"]:hover {
+    background: rgba(78,205,196,0.06) !important;
+    border-color: rgba(78,205,196,0.5) !important;
+}
+
+/* ─── Alerts ─────────────────────────────────────────────────── */
+[data-testid="stAlert"][data-type="success"] {
+    background: rgba(78,205,196,0.1) !important;
+    border: 1px solid rgba(78,205,196,0.3) !important;
+    color: var(--teal) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+[data-testid="stAlert"][data-type="error"] {
+    background: rgba(255,107,107,0.1) !important;
+    border: 1px solid rgba(255,107,107,0.3) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+[data-testid="stAlert"][data-type="info"] {
+    background: rgba(69,183,209,0.1) !important;
+    border: 1px solid rgba(69,183,209,0.3) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+[data-testid="stAlert"][data-type="warning"] {
+    background: rgba(255,230,109,0.08) !important;
+    border: 1px solid rgba(255,230,109,0.3) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+/* ─── DataFrames / Tables ────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+}
+
+/* ─── Tabs ───────────────────────────────────────────────────── */
+[data-testid="stTabs"] [data-testid="stTab"] {
+    font-size: 0.875rem !important;
+    color: var(--text-secondary) !important;
+}
+
+[data-testid="stTabs"] [aria-selected="true"] {
+    color: var(--teal) !important;
+    border-bottom-color: var(--teal) !important;
+}
+
+/* ─── Selectbox, Input, Number Input ─────────────────────────── */
+[data-testid="stSelectbox"] > div,
+[data-testid="stNumberInput"] > div,
+[data-testid="stTextInput"] > div {
+    border-radius: var(--radius-sm) !important;
+}
+
+/* ─── Progress bar ───────────────────────────────────────────── */
+[data-testid="stProgress"] [role="progressbar"] div {
+    background: linear-gradient(90deg, var(--teal), var(--blue)) !important;
+}
+
+/* ─── Code blocks ────────────────────────────────────────────── */
+.stCode, code {
+    background: rgba(0,0,0,0.3) !important;
+    border-radius: var(--radius-sm) !important;
+    border: 1px solid var(--glass-border) !important;
+    font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+}
+
+/* ─── Scrollbar personnalisée ────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--ocean-deep);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(78,205,196,0.3);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(78,205,196,0.5);
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-teal {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(78,205,196,0.3); }
+    50%       { box-shadow: 0 0 0 8px rgba(78,205,196,0); }
+}
+
+.page-header {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.info-card, .metric-card, .species-card {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ─── Spinner ─────────────────────────────────────────────────── */
+[data-testid="stSpinner"] div {
+    border-top-color: var(--teal) !important;
+}
+
+/* ─── Download button ─────────────────────────────────────────── */
+.stDownloadButton > button {
+    background: rgba(78,205,196,0.1) !important;
+    border: 1px solid rgba(78,205,196,0.35) !important;
+    color: var(--teal) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.stDownloadButton > button:hover {
+    background: rgba(78,205,196,0.2) !important;
+    border-color: var(--teal) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ─── Toggle ─────────────────────────────────────────────────── */
+[data-testid="stCheckbox"] span,
+[data-testid="stToggle"] span {
+    color: var(--text-primary) !important;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────── */
+hr {
+    border: none !important;
+    border-top: 1px solid var(--glass-border) !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* ─── Hide Streamlit branding ─────────────────────────────────── */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+[data-testid="stToolbar"] { display: none; }
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 1.5rem !important;
+    }
+    .species-card {
+        min-height: auto;
+    }
+}
